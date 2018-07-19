@@ -1,9 +1,5 @@
 package com.pro.manager.constant;
 
-import org.springframework.cglib.core.Local;
-
-import java.util.Locale;
-
 /**
  * @author ms
  * @Description:
