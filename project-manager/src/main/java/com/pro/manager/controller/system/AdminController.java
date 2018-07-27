@@ -10,6 +10,7 @@ import com.pro.utils.SessionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,14 +36,15 @@ public class AdminController extends BaseController {
 
 
     @PostMapping("/login")
-    public Object login(AdminLoginRequestBean adminLoginRequestBean, HttpServletRequest request) {
+    public Object login(@Validated AdminLoginRequestBean adminLoginRequestBean, HttpServletRequest request) {
         AdminResponseBean responseBean;
         if (SessionUtils.get(request, ADMIN_INFO_KEY) == null) {
             try {
                 responseBean = adminService.login(adminLoginRequestBean);
-                if (responseBean != null) {
-                    SessionUtils.set(request, ADMIN_INFO_KEY, responseBean);
+                if (responseBean == null) {
+                    return this.returnErrorResult(10001);
                 }
+                SessionUtils.set(request, ADMIN_INFO_KEY, responseBean);
             } catch (LoginException e) {
                 logger.error("login error:{}", e);
                 return this.returnErrorResult(90001);
@@ -54,6 +56,6 @@ public class AdminController extends BaseController {
     @PostMapping("/getLoginName")
     public void getLoginName(HttpServletRequest request) throws Exception {
         AdminResponseBean adminResponseBean = JsonUtils.jsonToBean((String) request.getAttribute("adminInfo"), AdminResponseBean.class);
-        logger.info("login name:----->{}", adminResponseBean.getLoginName());
+        logger.info("login name:----->{}", adminResponseBean.getAccount());
     }
 }

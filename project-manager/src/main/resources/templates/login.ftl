@@ -15,10 +15,10 @@
         <form action="/admin/login" method="post">
             <h1>登录</h1>
             <div>
-                <input type="text" placeholder="账号" required="" id="loginName" name="loginName"/>
+                <input type="text" placeholder="账号" required="" id="account" name="account"/>
             </div>
             <div>
-                <input type="password" placeholder="密码" required="" id="loginPwd" name="loginPwd"/>
+                <input type="password" placeholder="密码" required="" id="password" name="password"/>
             </div>
             <div class="">
                 <span class="help-block u-errormessage" id="js-server-helpinfo">&nbsp;</span>
@@ -42,7 +42,7 @@
                 url: "admin/login",
                 dataType: "json",
                 timeout: 30000,
-                data: {loginName: $("#loginName").val(), loginPwd: $("#loginPwd").val()},
+                data: {account: $("#account").val(), password: $("#password").val()},
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     layer.alert(errorThrown);
                 },

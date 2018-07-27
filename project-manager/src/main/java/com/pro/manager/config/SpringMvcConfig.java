@@ -26,6 +26,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
     public ResourceBundleMessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         messageSource.setBasename("message/resultMessage");
+        messageSource.setDefaultEncoding("GBK");
         return messageSource;
     }
 }

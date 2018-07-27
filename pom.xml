@@ -92,12 +92,6 @@
                 <version>${curator-framework.version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/org.springframework.amqp/spring-rabbit -->
-            <dependency>
-                <groupId>org.springframework.amqp</groupId>
-                <artifactId>spring-rabbit</artifactId>
-                <version>${spring-rabbit.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>io.springfox</groupId>

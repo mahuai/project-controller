@@ -2,6 +2,7 @@ package com.pro.manager.aop;
 
 
 import com.pro.utils.HttpUtils;
+import com.pro.utils.JsonUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -18,6 +19,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.lang.reflect.Method;
+import java.util.Map;
 
 /**
  * @author future
@@ -43,6 +45,8 @@ public class ConsoleOutAspect {
         Method method = methodSignature.getMethod();
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
+        Map<String, String[]> parameterMap = request.getParameterMap();
+        String args = JsonUtils.objtoJson(parameterMap);
         HttpSession session = request.getSession();
         String sessionId = session.getId();
         // 浏览器信息
@@ -51,7 +55,7 @@ public class ConsoleOutAspect {
         String requestWay = request.getMethod();
         // 客户端的IP地址
         String iPAddress = HttpUtils.getClientIpAddr(request);
-        logger.info("\033[0;32m \n sessionId: {}; \n 客户端的IP地址: {};\n 浏览器信息: {};\n 请求方式: {};\n 请求方法: {};\033[0m", sessionId, iPAddress, browserInfo, requestWay, method.getName());
+        logger.info("\033[0;32m \n sessionId: {}; \n 客户端的IP地址: {};\n 浏览器信息: {};\n 请求方式: {};\n 请求方法: {};\n 请求参数: {};\033[0m", sessionId, iPAddress, browserInfo, requestWay, method.getName(),args);
     }
 
     @AfterReturning(value = "consoleOut()", returning = "result")
