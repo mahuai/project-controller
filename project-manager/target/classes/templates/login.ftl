@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="static/css/body.css"/>
     <script src="static/js/jquery-3.3.1.min.js"></script>
     <script src="static/js/layer/layer.js"></script>
+    <script src="static/js/login.js"></script>
 </head>
 <body>
 <div class="container">
@@ -15,10 +16,10 @@
         <form action="/admin/login" method="post">
             <h1>登录</h1>
             <div>
-                <input type="text" placeholder="账号" required="" id="loginName" name="loginName"/>
+                <input type="text" placeholder="账号" required="" id="account" name="account"/>
             </div>
             <div>
-                <input type="password" placeholder="密码" required="" id="loginPwd" name="loginPwd"/>
+                <input type="password" placeholder="密码" required="" id="password" name="password"/>
             </div>
             <div class="">
                 <span class="help-block u-errormessage" id="js-server-helpinfo">&nbsp;</span>
@@ -34,27 +35,7 @@
     </section><!-- content -->
 </div>
 <script>
-    $(function () {
-        $("#loginBtn").click(function () {
 
-            $.ajax({
-                type: "post",
-                url: "admin/login",
-                dataType: "json",
-                timeout: 30000,
-                data: {loginName: $("#loginName").val(), loginPwd: $("#loginPwd").val()},
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    layer.alert(errorThrown);
-                },
-                success: function (data) {
-                    layer.msg('加载中', {
-                        icon: 16
-                        ,shade: 0.01
-                    });
-                }
-            })
-        })
-    })
 </script>
 </body>
 </html>

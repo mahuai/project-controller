@@ -1,7 +1,6 @@
 package com.pro.manager;
 
 import java.io.*;
-import java.util.*;
 
 /**
  * @author ms
@@ -17,7 +16,7 @@ public class Test {
 //        createByteStream();
 //        createWriter();
 
-        String str="中";
+        /*String str="中";
         byte [] b_gbk=str.getBytes("GBK");
         byte [] b_utf=str.getBytes("UTF-8");
         byte [] b_unic=str.getBytes("UTF-16");
@@ -25,7 +24,10 @@ public class Test {
         System.out.println(b_gbk);
         System.out.println(b_utf);
         System.out.println(b_unic);
-        System.out.println(b_Iso);
+        System.out.println(b_Iso);*/
+
+
+
 
     }
 

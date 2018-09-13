@@ -1,8 +1,9 @@
 package com.pro.manager.interceptor;
 
 import com.admin.api.entity.response.AdminResponseBean;
-import com.pro.utils.JsonUtils;
-import com.pro.utils.SessionUtils;
+
+import com.base.utils.JsonUtils;
+import com.base.utils.SessionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -27,6 +28,8 @@ public class InitInterceptor implements HandlerInterceptor {
 
     private static String ADMIN_INFO = "adminInfo";
 
+    private static final Object OBJECT = new Object();
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         logger.info("init -------------------------->{}", InitInterceptor.class);
@@ -50,11 +53,13 @@ public class InitInterceptor implements HandlerInterceptor {
 
 
     private static String getBasePath(HttpServletRequest request) {
-        if (BASE_PATH != null) {
-            return BASE_PATH;
+        synchronized (OBJECT) {
+            if (BASE_PATH != null) {
+                return BASE_PATH;
+            }
+            BASE_PATH = request.getContextPath() + request.getScheme() + "://" + request.getServerName() + ":" +
+                    request.getServerPort();
         }
-        BASE_PATH = request.getContextPath() + request.getScheme() + "://" + request.getServerName() + ":" +
-                request.getServerPort();
         return BASE_PATH;
     }
 }

@@ -4,9 +4,10 @@ import com.admin.api.entity.request.AdminLoginRequestBean;
 import com.admin.api.entity.response.AdminResponseBean;
 import com.admin.api.exception.LoginException;
 import com.admin.api.service.AdminService;
-import com.pro.base.result.BaseController;
-import com.pro.utils.JsonUtils;
-import com.pro.utils.SessionUtils;
+import com.base.result.BaseController;
+import com.base.utils.JsonUtils;
+import com.base.utils.SessionUtils;
+import com.pro.manager.annotation.AuthorityPass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,7 @@ public class AdminController extends BaseController {
     private AdminService adminService;
 
 
+    @AuthorityPass
     @PostMapping("/login")
     public Object login(@Validated AdminLoginRequestBean adminLoginRequestBean, HttpServletRequest request) {
         AdminResponseBean responseBean;

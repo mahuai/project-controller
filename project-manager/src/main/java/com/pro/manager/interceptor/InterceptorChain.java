@@ -25,6 +25,11 @@ public class InterceptorChain implements WebMvcConfigurer {
         return new LoginInterceptor();
     }
 
+    @Bean
+    public AuthorityInterceptor sessionInterceptor() {
+        return new AuthorityInterceptor();
+    }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //初始化basePath adminInfo
@@ -32,7 +37,10 @@ public class InterceptorChain implements WebMvcConfigurer {
                 excludePathPatterns("/static/**");
         //登录拦截
         registry.addInterceptor(loginInterceptor()).addPathPatterns("/**").
-                excludePathPatterns("/", "/admin/login");
+                excludePathPatterns("/", "/admin/login","/resource/*");
+        //权限 拦截
+        registry.addInterceptor(sessionInterceptor()).addPathPatterns("/**").
+                excludePathPatterns("/", "/admin/login","/resource/*");
     }
 
 

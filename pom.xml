@@ -10,6 +10,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>project-manager</module>
+        <module>project-client</module>
+        <module>project-learn</module>
     </modules>
 
     <properties>
@@ -17,6 +19,7 @@
         <admin-api.version>1.0.0</admin-api.version>
         <jansi.version>1.17.1</jansi.version>
         <admin-api.version>1.0-SNAPSHOT</admin-api.version>
+        <resource-api.version>1.0-SNAPSHOT</resource-api.version>
         <base.version>1.0-SNAPSHOT</base.version>
         <httpclient.version>4.5.6</httpclient.version>
         <spring-data-redis>2.0.8.RELEASE</spring-data-redis>
@@ -52,11 +55,17 @@
                 <version>${admin-api.version}</version>
             </dependency>
 
-            <!--<dependency>
+            <dependency>
                 <groupId>com.pro</groupId>
                 <artifactId>base</artifactId>
                 <version>${base.version}</version>
-            </dependency>-->
+            </dependency>
+
+            <dependency>
+                <groupId>com.pro</groupId>
+                <artifactId>resource-api</artifactId>
+                <version>${resource-api.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>

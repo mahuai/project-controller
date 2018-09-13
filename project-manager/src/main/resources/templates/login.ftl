@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="static/css/body.css"/>
     <script src="static/js/jquery-3.3.1.min.js"></script>
     <script src="static/js/layer/layer.js"></script>
+    <script src="static/js/login.js"></script>
 </head>
 <body>
 <div class="container">
@@ -34,27 +35,7 @@
     </section><!-- content -->
 </div>
 <script>
-    $(function () {
-        $("#loginBtn").click(function () {
 
-            $.ajax({
-                type: "post",
-                url: "admin/login",
-                dataType: "json",
-                timeout: 30000,
-                data: {account: $("#account").val(), password: $("#password").val()},
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    layer.alert(errorThrown);
-                },
-                success: function (data) {
-                    layer.msg('加载中', {
-                        icon: 16
-                        ,shade: 0.01
-                    });
-                }
-            })
-        })
-    })
 </script>
 </body>
 </html>
