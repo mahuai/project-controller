@@ -12,6 +12,7 @@
         <module>project-manager</module>
         <module>project-client</module>
         <module>project-learn</module>
+        <module>third-party</module>
     </modules>
 
     <properties>
@@ -30,6 +31,8 @@
         <spring-rabbit.version>2.0.4.RELEASE</spring-rabbit.version>
         <swagger2.version>2.9.2</swagger2.version>
         <freemarker.version>2.0.3.RELEASE</freemarker.version>
+        <elastic-job.version>2.1.5</elastic-job.version>
+
     </properties>
 
     <dependencyManagement>
@@ -108,9 +111,28 @@
                 <version>${swagger2.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
 
 
+            <!-- https://mvnrepository.com/artifact/com.dangdang/elastic-job-lite-core -->
+            <dependency>
+                <groupId>com.dangdang</groupId>
+                <artifactId>elastic-job-lite-core</artifactId>
+                <version>${elastic-job.version}</version>
+            </dependency>
 
+
+            <!-- https://mvnrepository.com/artifact/com.dangdang/elastic-job-lite-spring -->
+            <dependency>
+                <groupId>com.dangdang</groupId>
+                <artifactId>elastic-job-lite-spring</artifactId>
+                <version>${elastic-job.version}</version>
+            </dependency>
 
 
         </dependencies>

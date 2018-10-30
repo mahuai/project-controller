@@ -11,17 +11,22 @@ import java.util.*;
 public class MapDemo {
 
     public static void main(String[] args) {
-        Map<String, Object> hashMap = new HashMap<String, Object>(5);
-        hashMap.put("", "");
+
+        System.out.println(2 << 15);
+        /* Map<String, Object> hashMap = new HashMap<String, Object>(5);
+        hashMap.put("a", "1");
+        hashMap.put("a","2");
+        System.out.println(hashMap.get("a"));
+        System.out.println(hashMap.get("a"));
 
         Map<String, Object> hashtable = new Hashtable<String, Object>(5);
 
         Map<String, Object> map = new TreeMap<String, Object>(hashMap);
 
-        System.out.println();
 
-        int n = 11;
+        int n = 5;
         n-=1;
+        System.out.println(n);
         n |= n >>> 1;
         n |= n >>> 2;
         n |= n >>> 4;
@@ -33,6 +38,6 @@ public class MapDemo {
         System.out.println(n |= n >>> 8);
         System.out.println(n |= n >>> 16);
 
-        System.out.println((n < 0) ? 1 : (n >= 30) ? 30 : n + 1);
+        System.out.println((n < 0) ? 1 : (n >= 30) ? 30 : n + 1);*/
     }
 }

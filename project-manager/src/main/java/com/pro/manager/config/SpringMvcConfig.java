@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author future
  * @Description:
  * @Package com.pro.manager.config project-controller
- * @date: Created in 2018/7/1115:27
+ * @date: Created in 2018/7/11 15:27
  */
 @Configuration
 public class SpringMvcConfig implements WebMvcConfigurer {

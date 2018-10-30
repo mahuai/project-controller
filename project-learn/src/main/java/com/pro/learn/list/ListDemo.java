@@ -17,9 +17,19 @@ public class ListDemo {
 
         List<String> arrayList = new ArrayList<>(5);
         arrayList.add("a");
-        Arrays.asList(arrayList);
+        add(arrayList);
+        arrayList.forEach(list -> {
+            System.out.println(list);
+        });
+        /*Arrays.asList(arrayList);
         List<String> linkedList = new LinkedList<>();
-        linkedList.add("b");
+        linkedList.add("b");*/
+
+    }
+
+
+    public static void add(List<String> list) {
+        list.add("c");
 
     }
 }

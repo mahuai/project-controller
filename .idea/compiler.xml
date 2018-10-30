@@ -9,6 +9,7 @@
         <module name="project-client" />
         <module name="project-learn" />
         <module name="project-manager" />
+        <module name="third-party" />
       </profile>
     </annotationProcessing>
   </component>
